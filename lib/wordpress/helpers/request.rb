@@ -17,8 +17,8 @@ module Wordpress
           response.body
         end
 
-        def post(path,options={})
-          response = access_token.post("#{API_PATH}#{path}", DEFAULT_HEADERS.merge(options))
+        def post(path, body, options={})
+          response = access_token.post("#{API_PATH}#{path}", DEFAULT_HEADERS.merge(options).merge({:body => body}))
           raise_errors(response)
           response.body
         end
