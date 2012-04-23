@@ -30,17 +30,17 @@ module Wordpress
 
       def delete_comment blog_id, comment_id, options={}
         path = "/sites/#{blog_id}/comments/#{comment_id}/delete"
-        Mash.from_json(post path, {}, options)
+        Mash.from_json(post path, "", options)
       end
 
       def follow blog_id, options={}
         path = "/sites/#{blog_id}/follows/new"
-        Mash.from_json(post(path, {}, options))
+        Mash.from_json(post(path, "", options))
       end
 
       def unfollow blog_id, options={}
         path = "/sites/#{blog_id}/follows/mine/delete"
-        Mash.from_json(post(path, {}, options))
+        Mash.from_json(post(path, "", options))
       end
     end
 
