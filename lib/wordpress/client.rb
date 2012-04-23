@@ -1,6 +1,6 @@
 module Wordpress
 
-  class Client
+  class TestClient
     include Helpers::Authorization
     include Helpers::Requests
     include Api::Reader

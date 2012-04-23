@@ -1,6 +1,6 @@
 module Wordpress
   module Api
-    autoload :QueryMethods,  "wordpress/api/query_methods"
-    autoload :UpdateMethods, "wordpress/api/update_methods"
+    autoload :Reader,  "wordpress/api/reader"
+    autoload :Writer, "wordpress/api/writer"
   end
 end

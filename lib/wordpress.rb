@@ -11,10 +11,8 @@ module Wordpress
   end
 
   autoload :Api,     "wordpress/api"
-  autoload :Client,  "wordpress/client"
+  autoload :TestClient,  "wordpress/client"
   autoload :Mash,    "wordpress/mash"
   autoload :Errors,  "wordpress/errors"
   autoload :Helpers, "wordpress/helpers"
-  autoload :Search,  "wordpress/search"
-  autoload :Version, "wordpress/version"
 end
