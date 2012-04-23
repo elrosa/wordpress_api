@@ -17,13 +17,13 @@ module Wordpress
           response.body
         end
 
-        def post(path, body='', options={})
+        def post(path,options={})
           response = access_token.post("#{API_PATH}#{path}", DEFAULT_HEADERS.merge(options))
           raise_errors(response)
           response.body
         end
 
-        def put(path, body, options={})
+        def put(path, options={})
           response = access_token.put("#{API_PATH}#{path}", DEFAULT_HEADERS.merge(options))
           raise_errors(response)
           response.body
