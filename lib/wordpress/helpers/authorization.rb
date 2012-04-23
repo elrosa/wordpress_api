@@ -4,6 +4,7 @@ module Wordpress
     module Authorization
 
       DEFAULT_OAUTH_OPTIONS = {
+        :authorize_path     => "/oauth2/authorize",
         :api_host           => "https://public-api.wordpress.com",
         :auth_host          => "https://public-api.wordpress.com"
       }
@@ -31,11 +32,8 @@ module Wordpress
       end
 
       private
-
         def parse_oauth_options
           {
-            :request_token_url => full_oauth_url_for(:request_token, :api_host),
-            :access_token_url  => full_oauth_url_for(:access_token,  :api_host),
             :authorize_url     => full_oauth_url_for(:authorize,     :auth_host),
             :site              => @consumer_options[:site] || @consumer_options[:api_host] || DEFAULT_OAUTH_OPTIONS[:api_host]
           }

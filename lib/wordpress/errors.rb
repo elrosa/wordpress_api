@@ -8,11 +8,11 @@ module Wordpress
       end
     end
 
-    class UnauthorizedError   < WordpressError; end
-    class GeneralError        < WordpressError; end
+    class UnauthorizedError      < WordpressError; end
+    class GeneralError           < WordpressError; end
 
-    class UnavailableError    < WordpressError; end
-    class ServerError         < WordpressError; end
-    class NotFoundError       < WordpressError; end
+    class UnavailableError       < StandardError; end
+    class ServerError            < StandardError; end
+    class NotFoundError          < StandardError; end
   end
 end

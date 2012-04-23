@@ -3,7 +3,19 @@ require 'oauth'
 module Wordpress
 
   class << self
-    attr_accessor :token, :secret
+    attr_accessor :token, :secret, :default_profile_fields
+
+    # config/initializers/wordpress.rb (for instance)
+    #
+    # Wordpress.configure do |config|
+    #   config.token = 'consumer_token'
+    #   config.secret = 'consumer_secret'
+    #   config.default_profile_fields = ['education', 'positions']
+    # end
+    #
+    # elsewhere
+    #
+    # client = Wordpress::Client.new
     def configure
       yield self
       true
@@ -15,4 +27,5 @@ module Wordpress
   autoload :Mash,    "wordpress/mash"
   autoload :Errors,  "wordpress/errors"
   autoload :Helpers, "wordpress/helpers"
+  autoload :Version, "wordpress/version"
 end
