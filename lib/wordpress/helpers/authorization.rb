@@ -6,7 +6,7 @@ module Wordpress
       DEFAULT_OAUTH_OPTIONS = {
         :authorize_path     => "/oauth2/authorize",
         :api_host           => "https://public-api.wordpress.com",
-        :auth_host          => "https://public-api.wordpress.com"
+        :auth_host          => "https://public-api.wordpress.com",
       }
 
       def consumer
@@ -25,7 +25,8 @@ module Wordpress
         def parse_oauth_options
           {
             :authorize_url     => full_oauth_url_for(:authorize,     :auth_host),
-            :site              => @consumer_options[:site] || @consumer_options[:api_host] || DEFAULT_OAUTH_OPTIONS[:api_host]
+            :site              => @consumer_options[:site] || @consumer_options[:api_host] || DEFAULT_OAUTH_OPTIONS[:api_host],
+            :parse             => :json
           }
         end
 

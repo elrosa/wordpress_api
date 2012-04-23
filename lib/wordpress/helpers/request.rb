@@ -36,7 +36,8 @@ module Wordpress
       private
 
         def raise_errors(response)
-          case response.code.to_i
+          OAuth2::Response
+          case response.status.to_i
           when 401
             data = Mash.from_json(response.body)
             raise Wordpress::Errors::UnauthorizedError.new(data), "(#{data.status}): #{data.message}"
