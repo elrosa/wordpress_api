@@ -10,25 +10,15 @@ module Wordpress
       }
 
       def consumer
-        @consumer ||= ::OAuth::Consumer.new(@consumer_token, @consumer_secret, parse_oauth_options)
-      end
-
-      def request_token(options={})
-        @request_token ||= consumer.get_request_token(options)
-      end
-
-      def authorize_from_request(request_token, request_secret, verifier_or_pin)
-        request_token = ::OAuth::RequestToken.new(consumer, request_token, request_secret)
-        access_token  = request_token.get_access_token(:oauth_verifier => verifier_or_pin)
-        @auth_token, @auth_secret = access_token.token, access_token.secret
+        @consumer ||= ::OAuth2::Client.new(@consumer_token, @consumer_secret, parse_oauth_options)
       end
 
       def access_token
-        @access_token ||= ::OAuth::AccessToken.new(consumer, @auth_token, @auth_secret)
+        @access_token ||= ::OAuth2::AccessToken.new(consumer, @auth_token)
       end
 
-      def authorize_from_access(atoken, asecret)
-        @auth_token, @auth_secret = atoken, asecret
+      def authorize_from_access(atoken)
+        @auth_token = atoken
       end
 
       private

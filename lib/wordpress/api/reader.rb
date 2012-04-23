@@ -10,7 +10,6 @@ module Wordpress
       private
 
         def simple_query(path, options={})
-          fields = options[:fields] || Wordpress.default_profile_fields
 
           if options[:public]
             path +=":public"

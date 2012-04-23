@@ -1,4 +1,4 @@
-require 'oauth'
+require 'omniauth-oauth2'
 
 module Wordpress
 
