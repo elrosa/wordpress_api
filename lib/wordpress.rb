@@ -3,7 +3,7 @@ require 'oauth'
 module Wordpress
 
   class << self
-    attr_accessor :token, :secret, :default_profile_fields
+    attr_accessor :token, :secret
 
     # config/initializers/wordpress.rb (for instance)
     #

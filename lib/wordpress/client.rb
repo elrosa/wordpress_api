@@ -5,8 +5,8 @@ module Wordpress
   class Client
     include Helpers::Request
     include Helpers::Authorization
-    include Api::QueryMethods
-    include Api::UpdateMethods
+    include Api::Reader
+    include Api::Writer
 
     attr_reader :consumer_token, :consumer_secret, :consumer_options
 
