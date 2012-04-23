@@ -1,6 +1,6 @@
 module Wordpress
   module Helpers
     autoload :Authorization, "wordpress/helpers/authorization"
-    autoload :Requests,       "wordpress/helpers/requests"
+    autoload :Request,      "wordpress/helpers/request"
   end
 end

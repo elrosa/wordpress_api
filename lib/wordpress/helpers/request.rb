@@ -1,7 +1,7 @@
 module Wordpress
   module Helpers
 
-    module Requests
+    module Request
 
       API_PATH = '/rest/v1'
 
@@ -34,8 +34,6 @@ module Wordpress
       private
 
         def raise_errors(response)
-          # Even if the json answer contains the HTTP status code, LinkedIn also sets this code
-          # in the HTTP answer (thankfully).
           case response.code.to_i
           when 401
             data = Mash.from_json(response.body)

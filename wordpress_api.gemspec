@@ -4,7 +4,7 @@ require "wordpress/version"
 
 Gem::Specification.new do |gem|
   gem.name        = "wordpress_api"
-  gem.version     = Wordpress::VERSION
+  gem.version     = Wordpress::VERSION::STRING
   gem.authors     = ["Magda Sikorska"]
   gem.email       = ["madzia.sikorska@gmail.com"]
   gem.homepage    = "https://github.com/elrosa/wordpress_api"
@@ -18,7 +18,9 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'multi_json', '~> 1.0.3'
   gem.add_dependency 'oauth', '~> 0.4.5'
 
-  gem.add_development_dependency 'rspec', '~> 2.7.0'
-  gem.add_development_dependency 'rake'
-  gem.add_development_dependency 'webmock'
+  gem.add_development_dependency 'json', '~> 1.6'
+  gem.add_development_dependency 'rake', '~> 0.9'
+  gem.add_development_dependency 'rdoc', '~> 3.8'
+  gem.add_development_dependency 'rspec', '~> 2.6'
+  gem.add_development_dependency 'webmock', '~> 1.7'
 end

@@ -1,7 +1,8 @@
 module Wordpress
   module Api
-    module Writer
 
+    module Writer
     end
+
   end
 end
