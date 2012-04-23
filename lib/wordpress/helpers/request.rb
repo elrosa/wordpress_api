@@ -3,28 +3,30 @@ module Wordpress
 
     module Request
 
-      DEFAULT_HEADERS = { }
+      DEFAULT_HEADERS = {
+          :headers => {"Content-Type" => "application/json"}
+      }
 
       API_PATH = '/rest/v1'
 
       protected
 
         def get(path, options={})
-          response = access_token.get("#{API_PATH}#{path}", {:headers => DEFAULT_HEADERS.merge(options)})
+          response = access_token.get("#{API_PATH}#{path}", DEFAULT_HEADERS.merge(options))
           raise_errors(response)
           response.body
         end
 
         def post(path, body='', options={})
-          response = access_token.post("#{API_PATH}#{path}", {:headers => DEFAULT_HEADERS.merge(options)})
+          response = access_token.post("#{API_PATH}#{path}", DEFAULT_HEADERS.merge(options))
           raise_errors(response)
-          response
+          response.body
         end
 
         def put(path, body, options={})
-          response = access_token.put("#{API_PATH}#{path}", {:headers => DEFAULT_HEADERS.merge(options)})
+          response = access_token.put("#{API_PATH}#{path}", DEFAULT_HEADERS.merge(options))
           raise_errors(response)
-          response
+          response.body
         end
 
         def delete(path, options={})
