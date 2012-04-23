@@ -8,7 +8,7 @@ module Wordpress
 
     attr_reader :consumer_token, :consumer_secret, :consumer_options
 
-    def initialize(token= Wordpress.token,csecret=Wordpress.secret, options={})
+    def initialize(token= Wordpress.token, secret=Wordpress.secret, options={})
       @consumer_token   = token
       @consumer_secret  = secret
       @consumer_options = options
