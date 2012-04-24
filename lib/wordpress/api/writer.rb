@@ -33,6 +33,16 @@ module Wordpress
         Mash.from_json(post path, "", options)
       end
 
+      def create_like blog_id, post_id, options={}
+        path = "/sites/#{blog_id}/posts/#{post_id}/likes/new"
+        Mash.from_json(post path, "", options)
+      end
+
+      def delete_like blog_id, post_id, options={}
+        path = "/sites/#{blog_id}/posts/#{post_id}/likes/mine/delete"
+        Mash.from_json(post path, "", options)
+      end
+
       def follow blog_id, options={}
         path = "/sites/#{blog_id}/follows/new"
         Mash.from_json(post(path, "", options))
