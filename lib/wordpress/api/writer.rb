@@ -10,7 +10,7 @@ module Wordpress
 
       def delete_post blog_id, post_id, options={}
         path = "/sites/#{blog_id}/posts/#{post_id}/delete"
-        Mash.from_json(post(path, {}, options))
+        Mash.from_json(post(path, "", options))
       end
 
       def repost blog_id, post_id, content, options={}
