@@ -13,9 +13,9 @@ module Wordpress
         Mash.from_json(post(path, "", options))
       end
 
-      def repost blog_id, post_id, content, options={}
+      def repost blog_id, post_id, options={}
         path = "/sites/#{blog_id}/posts/#{post_id}/reblogs/new"
-        Mash.from_json(post path, content.to_json, options)
+        Mash.from_json(post path, "", options)
       end
 
       def create_comment blog_id, post_id, content, options={}
