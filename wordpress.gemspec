@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.email = ['madzia.sikorska@gmail.com']
   gem.description = %q{Ruby wrapper for the Wordpress API}
   gem.homepage = 'http://github.com/elrosa/wordpress_api'
-  gem.name = 'wordpress'
+  gem.name = 'wordpress_api'
   gem.summary = gem.description
   gem.version = Wordpress::VERSION::STRING
 
