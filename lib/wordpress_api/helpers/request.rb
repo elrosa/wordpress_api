@@ -42,16 +42,16 @@ module WordpressApi
           case response.status.to_i
           when 401
             data = Mash.from_json(response.body)
-            raise Wordpress::Errors::UnauthorizedError.new(data), "(#{data.status}): #{data.message}"
+            raise WordpressApi::Errors::UnauthorizedError.new(data), "(#{data.status}): #{data.message}"
           when 400, 403
             data = Mash.from_json(response.body)
-            raise Wordpress::Errors::GeneralError.new(data), "(#{data.status}): #{data.message}"
+            raise WordpressApi::Errors::GeneralError.new(data), "(#{data.status}): #{data.message}"
           when 404
-            raise Wordpress::Errors::NotFoundError, "(#{response.code}): #{response.message}"
+            raise WordpressApi::Errors::NotFoundError, "(#{response.code}): #{response.message}"
           when 500
-            raise Wordpress::Errors::ServerError, "(#{response.code}): #{response.message}"
+            raise WordpressApi::Errors::ServerError, "(#{response.code}): #{response.message}"
           when 502..503
-            raise Wordpress::Errors::UnavailableError, "(#{response.code}): #{response.message}"
+            raise WordpressApi::Errors::UnavailableError, "(#{response.code}): #{response.message}"
           end
         end
 

@@ -7,7 +7,7 @@ module WordpressApi
 
     # config/initializers/wordpress_api.rb (for instance)
     #
-    # Wordpress.configure do |config|
+    # WordpressApi.configure do |config|
     #   config.token = 'consumer_token'
     #   config.secret = 'consumer_secret'
     #   config.default_profile_fields = ['education', 'positions']
@@ -15,7 +15,7 @@ module WordpressApi
     #
     # elsewhere
     #
-    # client = Wordpress::Client.new
+    # client = WordpressApi::Client.new
     def configure
       yield self
       true

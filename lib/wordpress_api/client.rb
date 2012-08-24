@@ -10,7 +10,7 @@ module WordpressApi
 
     attr_reader :consumer_token, :consumer_secret, :consumer_options
 
-    def initialize(ctoken=Wordpress.token, csecret=Wordpress.secret, options={})
+    def initialize(ctoken=WordpressApi.token, csecret=WordpressApi.secret, options={})
       @consumer_token   = ctoken
       @consumer_secret  = csecret
       @consumer_options = options
