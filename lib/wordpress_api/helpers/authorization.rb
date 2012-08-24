@@ -5,8 +5,8 @@ module WordpressApi
 
       DEFAULT_OAUTH_OPTIONS = {
         :authorize_path     => "/oauth2/authorize",
-        :api_host           => "https://public-api.wordpress_api.com",
-        :auth_host          => "https://public-api.wordpress_api.com",
+        :api_host           => "https://public-api.wordpress.com",
+        :auth_host          => "https://public-api.wordpress.com",
       }
 
       def consumer
