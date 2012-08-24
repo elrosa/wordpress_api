@@ -1,12 +1,12 @@
-module Wordpress
+module WordpressApi
   module Helpers
 
     module Authorization
 
       DEFAULT_OAUTH_OPTIONS = {
         :authorize_path     => "/oauth2/authorize",
-        :api_host           => "https://public-api.wordpress.com",
-        :auth_host          => "https://public-api.wordpress.com",
+        :api_host           => "https://public-api.wordpress_api.com",
+        :auth_host          => "https://public-api.wordpress_api.com",
       }
 
       def consumer

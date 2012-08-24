@@ -13,7 +13,7 @@ require 'rdoc/task'
 require File.expand_path('../lib/wordpress/version', __FILE__)
 RDoc::Task.new do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "wordpress #{Wordpress::VERSION::STRING}"
+  rdoc.title = "wordpress_api #{Wordpress::VERSION::STRING}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

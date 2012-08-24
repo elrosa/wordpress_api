@@ -1,5 +1,5 @@
 # encoding: utf-8
-require File.expand_path('../lib/wordpress/version', __FILE__)
+require File.expand_path('../lib/wordpress_api/version', __FILE__)
 
 Gem::Specification.new do |gem|
 
@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.homepage = 'http://github.com/elrosa/wordpress_api'
   gem.name = 'wordpress_api'
   gem.summary = gem.description
-  gem.version = Wordpress::VERSION::STRING
+  gem.version = WordpressApi::VERSION::STRING
 
   gem.files = `git ls-files`.split("\n")
   gem.require_paths = ['lib']

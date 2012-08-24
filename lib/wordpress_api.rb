@@ -1,11 +1,11 @@
 require 'omniauth-oauth2'
 
-module Wordpress
+module WordpressApi
 
   class << self
     attr_accessor :token, :secret
 
-    # config/initializers/wordpress.rb (for instance)
+    # config/initializers/wordpress_api.rb (for instance)
     #
     # Wordpress.configure do |config|
     #   config.token = 'consumer_token'
@@ -22,10 +22,10 @@ module Wordpress
     end
   end
 
-  autoload :Api,     "wordpress/api"
-  autoload :Client,  "wordpress/client"
-  autoload :Mash,    "wordpress/mash"
-  autoload :Errors,  "wordpress/errors"
-  autoload :Helpers, "wordpress/helpers"
-  autoload :Version, "wordpress/version"
+  autoload :Api,     "wordpress_api/api"
+  autoload :Client,  "wordpress_api/client"
+  autoload :Mash,    "wordpress_api/mash"
+  autoload :Errors,  "wordpress_api/errors"
+  autoload :Helpers, "wordpress_api/helpers"
+  autoload :Version, "wordpress_api/version"
 end

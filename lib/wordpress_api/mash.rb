@@ -1,7 +1,7 @@
 require 'hashie'
 require 'multi_json'
 
-module Wordpress
+module WordpressApi
   class Mash < ::Hashie::Mash
 
     # a simple helper to convert a json string to a Mash

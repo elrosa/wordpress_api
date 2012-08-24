@@ -1,4 +1,4 @@
-module Wordpress
+module WordpressApi
   module Errors
     class WordpressError < StandardError
       attr_reader :data

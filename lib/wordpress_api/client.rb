@@ -1,6 +1,6 @@
 require 'cgi'
 
-module Wordpress
+module WordpressApi
 
   class Client
     include Helpers::Request

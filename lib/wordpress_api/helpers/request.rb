@@ -1,4 +1,4 @@
-module Wordpress
+module WordpressApi
   module Helpers
 
     module Request
