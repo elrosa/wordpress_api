@@ -47,19 +47,18 @@ module WordpressApi
         end
 
         def raise_errors(response)
+          data = Mash.new(response.body)
           case response.status
           when 401
-            data = Mash.new(response.body)
             raise WordpressApi::Errors::UnauthorizedError.new(data), "(#{data.status}): #{data.message}"
+          when 400, 403
+            raise WordpressApi::Errors::GeneralError.new(data), "(#{data.status}): #{data.message}"
           when 404
             raise WordpressApi::Errors::NotFoundError, "(#{response.code}): #{response.message}"
           when 500
             raise WordpressApi::Errors::ServerError, "(#{response.code}): #{response.message}"
           when 502..503
             raise WordpressApi::Errors::UnavailableError, "(#{response.code}): #{response.message}"
-          else
-            data = Mash.new(response.body)
-            raise WordpressApi::Errors::GeneralError.new(data), "(#{data.status}): #{data.message}"
           end
         end
 
