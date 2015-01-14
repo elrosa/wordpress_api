@@ -47,7 +47,8 @@ module WordpressApi
         end
 
         def raise_errors(response)
-          data = Mash.new(response.body)
+          Rails.logger.fatal response
+          data = WordpressApi::Mash.new(response.body)
           case response.status
           when 401
             raise WordpressApi::Errors::UnauthorizedError.new(data), "(#{data.status}): #{data.message}"
