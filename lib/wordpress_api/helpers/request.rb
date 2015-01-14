@@ -49,7 +49,7 @@ module WordpressApi
         def raise_errors(response)
           case response.status
           when 401
-            data = Mash.from_json(response.body)
+            data = Mash.new(response.body)
             raise WordpressApi::Errors::UnauthorizedError.new(data), "(#{data.status}): #{data.message}"
           when 404
             raise WordpressApi::Errors::NotFoundError, "(#{response.code}): #{response.message}"
