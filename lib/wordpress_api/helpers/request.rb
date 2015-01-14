@@ -58,7 +58,7 @@ module WordpressApi
           when 502..503
             raise WordpressApi::Errors::UnavailableError, "(#{response.code}): #{response.message}"
           else
-            data = Mash.from_json(response.body)
+            data = Mash.new(response.body)
             raise WordpressApi::Errors::GeneralError.new(data), "(#{data.status}): #{data.message}"
           end
         end
