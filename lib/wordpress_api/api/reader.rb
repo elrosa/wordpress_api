@@ -5,7 +5,10 @@ module WordpressApi
 
       def profile(options={})
         path = "/me"
-        Mash.new(get path, options)
+        response = get path, options
+        pp response
+
+        WordpressApi::Mash.new(response)
       end
 
       def blog(blog_id, options={})
