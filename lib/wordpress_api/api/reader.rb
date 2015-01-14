@@ -3,37 +3,33 @@ module WordpressApi
 
     module Reader
 
-      def profile(options={})
-        path = "/me"
-        response = get path, options
-        pp response
-
-        WordpressApi::Mash.new(response)
+      def profile(params={})
+        WordpressApi::Mash.new(get "me", params)
       end
 
-      def blog(blog_id, options={})
-        path = "/sites/#{blog_id}"
-        Mash.new(get path, options)
+      def blog(blog_id, params={})
+        path = "sites/#{blog_id}"
+        Mash.new(get path, params)
       end
 
-      def posts(blog_id, options={})
-        path = "/sites/#{blog_id}/posts"
-        Mash.new(get path, options)
+      def posts(blog_id, params={})
+        path = "sites/#{blog_id}/posts"
+        Mash.new(get path, params)
       end
 
-      def likes(blog_id, post_id, options={})
-        path = "/sites/#{blog_id}/posts/#{post_id}/likes"
-        Mash.new(get path, options)
+      def likes(blog_id, post_id, params={})
+        path = "sites/#{blog_id}/posts/#{post_id}/likes"
+        Mash.new(get path, params)
       end
 
-      def comments(blog_id, post_id, options={})
-        path = "/sites/#{blog_id}/posts/#{post_id}/replies"
-        Mash.new(get path, options)
+      def comments(blog_id, post_id, params={})
+        path = "sites/#{blog_id}/posts/#{post_id}/replies"
+        Mash.new(get path, params)
       end
 
-      def followers(blog_id, options={})
-        path = "/sites/#{blog_id}/follows/mine"
-        Mash.new(get path, options)
+      def followers(blog_id, params={})
+        path = "sites/#{blog_id}/follows/mine"
+        Mash.new(get path, params)
       end
 
 

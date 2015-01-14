@@ -10,7 +10,6 @@ module WordpressApi
 
         default_options = {
             headers: {
-                "Content-Type" => "application/json",
                 accept: 'application/json',
                 user_agent: "wordpress_api gem",
                 authorization: "Bearer #{credentials[:token]}"
