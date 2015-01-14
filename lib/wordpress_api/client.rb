@@ -3,8 +3,8 @@ require 'cgi'
 module WordpressApi
 
   class Client
+    include Helpers::Connection
     include Helpers::Request
-    include Helpers::Authorization
     include Api::Reader
     include Api::Writer
 
