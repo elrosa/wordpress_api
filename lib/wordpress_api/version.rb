@@ -3,9 +3,8 @@ module WordpressApi
   module VERSION #:nodoc:
     MAJOR = 0
     MINOR = 2
-    PATCH = 1
-    PRE   = nil
-    STRING = [MAJOR, MINOR, PATCH, PRE].compact.join('.')
+    PATCH = 2
+    STRING = [MAJOR, MINOR, PATCH].compact.join('.')
   end
 
 end

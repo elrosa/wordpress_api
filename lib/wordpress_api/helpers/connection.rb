@@ -11,7 +11,7 @@ module WordpressApi
         default_options = {
             headers: {
                 accept: 'application/json',
-                user_agent: "wordpress_api/#{WordpressApi::VERSION}",
+                user_agent: "wordpress_api/#{WordpressApi::VERSION::STRING}",
                 authorization: "Bearer #{credentials[:token]}"
             },
             url: "https://public-api.wordpress.com/rest/v1"
