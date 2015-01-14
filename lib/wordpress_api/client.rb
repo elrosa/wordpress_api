@@ -8,12 +8,28 @@ module WordpressApi
     include Api::Reader
     include Api::Writer
 
-    attr_reader :consumer_token, :consumer_secret, :consumer_options
+    attr_accessor :access_token, :client_id, :client_secret
 
-    def initialize(ctoken=WordpressApi.token, csecret=WordpressApi.secret, options={})
-      @consumer_token   = ctoken
-      @consumer_secret  = csecret
-      @consumer_options = options
+
+    def initialize(options = {})
+      options.each do |key, value|
+        instance_variable_set("@#{key}", value)
+      end
+      yield(self) if block_given?
+    end
+
+    # @return [Hash]
+    def credentials
+      {
+          client_id: client_id,
+          client_secret: client_secret,
+          token: access_token
+      }
+    end
+
+    # @return [Boolean]
+    def credentials?
+      credentials.values.all?
     end
 
 

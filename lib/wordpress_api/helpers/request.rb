@@ -7,51 +7,59 @@ module WordpressApi
           :headers => {"Content-Type" => "application/json"}
       }
 
-      API_PATH = '/rest/v1'
 
       protected
-
-        def get(path, options={})
-          response = access_token.get("#{API_PATH}#{path}", DEFAULT_HEADERS.merge(options))
-          raise_errors(response)
-          response.body
+        def get(path, params = {})
+          response = connection.get do |req|
+            req.url path
+            req.params = params
+          end
+          respond(response)
         end
 
-        def post(path, body, options={})
-          response = access_token.post("#{API_PATH}#{path}", DEFAULT_HEADERS.merge(options).merge({:body => body}))
-          raise_errors(response)
-          response.body
+        def post(path, params={})
+          response = connection.post do |req|
+            req.url path
+            req.params = params unless params.empty?
+          end
+          respond(response)
         end
 
-        def put(path, options={})
-          response = access_token.put("#{API_PATH}#{path}", DEFAULT_HEADERS.merge(options))
-          raise_errors(response)
-          response.body
+        def put(path, params={})
+          response = connection.put do |req|
+            req.url path
+            req.params = params unless params.empty?
+          end
+          respond(response)
         end
 
-        def delete(path, options={})
-          response = access_token.delete("#{API_PATH}#{path}", DEFAULT_HEADERS.merge(options))
-          raise_errors(response)
-          response
+        def delete(path, params={})
+          response = connection.delete do |req|
+            req.url path
+          end
+          respond(response)
         end
 
       private
+        def respond response
+          raise_errors(response)
+          response.body
+        end
 
         def raise_errors(response)
-          OAuth2::Response
-          case response.status.to_i
+          case response.status
           when 401
             data = Mash.from_json(response.body)
             raise WordpressApi::Errors::UnauthorizedError.new(data), "(#{data.status}): #{data.message}"
-          when 400, 403
-            data = Mash.from_json(response.body)
-            raise WordpressApi::Errors::GeneralError.new(data), "(#{data.status}): #{data.message}"
           when 404
             raise WordpressApi::Errors::NotFoundError, "(#{response.code}): #{response.message}"
           when 500
             raise WordpressApi::Errors::ServerError, "(#{response.code}): #{response.message}"
           when 502..503
             raise WordpressApi::Errors::UnavailableError, "(#{response.code}): #{response.message}"
+          else
+            data = Mash.from_json(response.body)
+            raise WordpressApi::Errors::GeneralError.new(data), "(#{data.status}): #{data.message}"
           end
         end
 

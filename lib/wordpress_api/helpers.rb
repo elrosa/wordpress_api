@@ -1,6 +1,6 @@
 module WordpressApi
   module Helpers
-    autoload :Authorization, "wordpress_api/helpers/authorization"
+    autoload :Connection,    "wordpress_api/helpers/connection"
     autoload :Request,       "wordpress_api/helpers/request"
   end
 end
