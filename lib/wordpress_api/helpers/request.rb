@@ -11,15 +11,15 @@ module WordpressApi
       protected
         def get(path, params = {})
           response = connection.get do |req|
-            req.url = path
-            req.params = params
+            req.url path
+            req.params = params unless params.empty?
           end
           respond(response)
         end
 
         def post(path, params={})
           response = connection.post do |req|
-            req.url = path
+            req.url path
             req.params = params unless params.empty?
           end
           respond(response)
