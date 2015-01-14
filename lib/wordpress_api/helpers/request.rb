@@ -14,7 +14,7 @@ module WordpressApi
       def post(path, params={})
         response = connection.post do |req|
           req.url path
-          req.params = params unless params.empty?
+          req.body = params unless params.empty?
         end
         respond(response)
       end
