@@ -19,21 +19,6 @@ module WordpressApi
         respond(response)
       end
 
-      def put(path, params={})
-        response = connection.put do |req|
-          req.url path
-          req.params = params unless params.empty?
-        end
-        respond(response)
-      end
-
-      def delete(path, params={})
-        response = connection.delete do |req|
-          req.url path
-        end
-        respond(response)
-      end
-
       def respond response
         raise_errors(response)
         response.body
