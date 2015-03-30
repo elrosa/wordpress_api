@@ -16,8 +16,8 @@ Gem::Specification.new do |gem|
   gem.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
 
   gem.add_dependency 'hashie', '~> 1.2.0'
-  gem.add_dependency 'multi_json', '~> 1.0.3'
-  gem.add_dependency 'omniauth-oauth2', '~> 1.0.0'
+  #gem.add_dependency 'multi_json', '~> 1.0.3'
+  gem.add_dependency 'omniauth-oauth2'
 
   gem.add_development_dependency 'json', '~> 1.6'
   gem.add_development_dependency 'rake', '~> 0.9'
